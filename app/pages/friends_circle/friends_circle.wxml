@@ -1,0 +1,49 @@
+<view class="container" style="overflow-x : hidden;" bindtap="ctrlHidden">
+
+    <!--背景部分-->
+    <view class="tc-panel circle-top" style="margin-bottom:30px;height:25%;">
+        <image src="../../img/top-bg.png" class="circle-top-img" ></image>
+        <icon class="icon-camera" />
+        <view class="anchor-pic tc-border-box">
+            <image src="{{avatarUrl}}"></image>
+        </view>
+        <text class="name">广州红馆演唱会</text>
+    </view>
+
+    <!--内容部分-->
+    <view class="tc-panel" style="">
+        <!--这是一个列表-->
+        <block wx-if="{{list.length > 0}}" wx:for-index="idx" wx:for-item="itemName" wx:for="{{list}}">
+            <view class="list-wrap tc-wrap"  bindtap="viewTurn">
+                <image class="anchor-pic" src="{{itemName.anchor}}"></image>
+                <view class="media-bd">
+                    <view class="name">{{itemName.name}}</view>
+                    <text class="context">{{itemName.context}}</text>
+                    <!--<view class="pull-down" bindtap="dropDown" wx:if="{{itemName.drop}}">全部</view>-->
+                    <view class="pic-wrap tc-clearfix">
+                        <block wx:for="{{itemName.pic}}" wx:for-item="pic" >
+                            <image src="{{pic}}"  mode="aspectFill" class="pic-item count-{{itemName.pic.length}}"></image>
+                        </block>
+                    </view>
+                    <view class="bottom-wrap">
+                        <text class="time">2014-05-16 05:24</text>
+                        <text class="delete" wx:if="{{itemName.myself}}" catchtap="modalTap" id="{{idx}}">删除</text>
+                        <view class="ctrl" catchtap="ctrlShow" id="{{idx}}">
+                            <icon class="icon-comment"/>
+                            <view class="ctrl-box {{itemName.ctrlShow? 'ant' : '' }}">
+                                <view class="item">赞</view>
+                                <view class="item">评论</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>            
+            </view>        
+        </block>
+    </view>
+
+</view>
+
+<!--模态窗口-->
+<modal title="标题" confirm-text="确认" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="delteItem" bindcancel="modalChange">
+  是否删除？
+</modal>
