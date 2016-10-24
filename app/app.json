@@ -1,12 +1,30 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/friends_circle/friends_circle"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "她说",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar" : {
+    "color" : "#000",
+    "borderStyle" : "white",
+    "selectedColor" : "#1d95d4",
+    "list" : [
+      {
+        "pagePath": "pages/friends_circle/friends_circle",
+        "text" : "动态"
+      },
+      {
+        "pagePath": "pages/friends_circle/friends_circle",
+        "text" : "发动态"
+      },
+      {
+        "pagePath": "pages/friends_circle/friends_circle",
+        "text" : "我"
+      }
+    ]
   }
 }
